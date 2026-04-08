@@ -43,6 +43,8 @@ fn copy_bindings<T: AsRef<Path>>(dir: &str, bindgen_name: &str, out_path: T) {
 fn main() {
     let out_dir = env::var("OUT_DIR").unwrap();
     let out_path = Path::new(&out_dir).join("bindgen.rs");
+    build_bundled::main(&out_dir, &out_path);
+    return;
     if cfg!(feature = "in_gecko") {
         // When inside mozilla-central, we are included into the build with
         // sqlite3.o directly, so we don't want to provide any linker arguments.
