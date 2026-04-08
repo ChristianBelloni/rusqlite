@@ -36,7 +36,7 @@ fn copy_bindings<T: AsRef<Path>>(dir: &str, bindgen_name: &str, out_path: T) {
     } else {
         format!("{dir}/{bindgen_name}.rs")
     };
-    let out_path = out_path.as_ref()
+    let out_path = out_path.as_ref();
     std::fs::copy(&from, out_path).expect(&format!("Could not copy bindings to output directory {from} {}", out_path.display()));
 }
 
